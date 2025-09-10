@@ -278,3 +278,11 @@ header a{
         width: 0;
     }
 }
+@media (max-width: 600px) {
+    .animal .list .item .content{
+        padding-right: 0;
+    }
+    .animal .list .item .title{
+        font-size: 30px;
+    }
+}
