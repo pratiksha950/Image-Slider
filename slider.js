@@ -1,10 +1,14 @@
 let nextBtn=document.querySelector(".next");
 let preBtn=document.querySelector(".pre");
-let animal=document.querySelectorAll(".animal");
-let listItem=document.querySelectorAll(".animal .list");
-let thumbnail=document.querySelectorAll(".animal .thumbnail");
+let animal=document.querySelector(".animal");
+let listItem=document.querySelector(".animal .list");
+let thumbnail=document.querySelector(".thumbnail");
 let timeRunning=3000;
+let timeAutoNext=7000;
 let runTimeOut;
+let runAutoRun=setTimeout(() => {
+        nextBtn.click();
+    }, timeAutoNext);
 
 nextBtn.onclick=function(){
     showSlider('next');
@@ -14,18 +18,28 @@ preBtn.onclick=function(){
 }
 function showSlider(type){
     let itemSlider=document.querySelectorAll(".animal .list .item");
-    let itemThumbnail=document.querySelectorAll(".animal .thumbnail");
-    if(type==='next'){
+    let itemThumbnail=document.querySelectorAll(" .thumbnail .item");
+
+    if(type === 'next'){
         listItem.appendChild(itemSlider[0]);
         thumbnail.appendChild(itemThumbnail[0]);
-        animal.classList.add('next')
-    }else{
-        let positionLastItem=itemSlider.length-1;
-         listItem.prepend(itemSlider[positionLastItem]);
-         thumbnail.prepend(itemThumbnail[positionLastItem]);
+        animal.classList.add('next');
+    } 
+    else if(type === 'pre'){
+        listItem.prepend(itemSlider[itemSlider.length - 1]);
+        thumbnail.prepend(itemThumbnail[itemThumbnail.length - 1]);
+        animal.classList.add('pre');
     }
+
     clearTimeout(runTimeOut);
     runTimeOut=setTimeout(() => {
-        animal.classList.remove("next");
+        animal.classList.remove("next"),
+         animal.classList.remove("pre");
     }, timeRunning);
+
+clearTimeout(runAutoRun);
+runAutoRun = setTimeout(() => {
+    nextBtn.click();
+}, timeAutoNext);
+    
 }

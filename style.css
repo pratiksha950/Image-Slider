@@ -281,8 +281,15 @@ header a{
 @media (max-width: 600px) {
     .animal .list .item .content{
         padding-right: 0;
+        font-size: 12px;
     }
     .animal .list .item .title{
         font-size: 30px;
     }
+    .SUBSCRIBE{
+        display: none;
+    }
+}
+header{
+    display: none;
 }
