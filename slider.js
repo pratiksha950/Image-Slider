@@ -15,13 +15,17 @@ preBtn.onclick=function(){
 function showSlider(type){
     let itemSlider=document.querySelectorAll(".animal .list .item");
     let itemThumbnail=document.querySelectorAll(".animal .thumbnail");
-    if(type=='next'){
+    if(type==='next'){
         listItem.appendChild(itemSlider[0]);
         thumbnail.appendChild(itemThumbnail[0]);
         animal.classList.add('next')
+    }else{
+        let positionLastItem=itemSlider.length-1;
+         listItem.prepend(itemSlider[positionLastItem]);
+         thumbnail.prepend(itemThumbnail[positionLastItem]);
     }
     clearTimeout(runTimeOut);
     runTimeOut=setTimeout(() => {
-        animal.classList.remove("next")
+        animal.classList.remove("next");
     }, timeRunning);
 }
