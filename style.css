@@ -18,7 +18,7 @@ header{
     display: flex;
     align-items: center;
     position: relative;
-    z-index: 100;
+    /* z-index: 100; */
 }
 header a{
     margin-left: 40px;
@@ -27,7 +27,7 @@ header a{
     height:100vh;
     width: 100vw;
     overflow: hidden;
-    margin-top: -50px;
+    /* margin-top: -50px; */
 }
 .animal .list .item{
     position: absolute;
